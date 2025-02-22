@@ -21,18 +21,14 @@ class UpdateProductActivity : AppCompatActivity() {
         binding = ActivityUpdateProductBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Initialize the repository and ViewModel
         val repo = ProductRepositoryImpl()
         productViewModel = ProductViewModel(repo)
 
-        // Get the product ID passed via Intent
         val productId: String? = intent.getStringExtra("productId")
 
-        // Observe the product LiveData
         productViewModel.getProductById(productId.toString())
         productViewModel.product.observe(this) { product ->
             if (product != null) {
-                // Populate fields with product details
                 binding.updateProductDescription.setText(product.productDesc)
                 binding.updateProductPrice.setText(product.price)
                 binding.updateProductName.setText(product.productName)
@@ -41,7 +37,6 @@ class UpdateProductActivity : AppCompatActivity() {
             }
         }
 
-        // Handle the update button click
         binding.updateButton.setOnClickListener {
             val productName = binding.updateProductName.text.toString()
             val price = binding.updateProductPrice.text.toString()
@@ -65,7 +60,6 @@ class UpdateProductActivity : AppCompatActivity() {
             }
         }
 
-        // Handle edge-to-edge insets
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
