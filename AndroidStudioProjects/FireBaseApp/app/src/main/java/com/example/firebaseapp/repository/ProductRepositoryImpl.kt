@@ -18,7 +18,7 @@ class ProductRepositoryImpl : ProductRepository {
         productModel.productId = id
         reference.child(id).setValue(productModel).addOnCompleteListener{
             if(it.isSuccessful){
-                callback(true, "Product added successfully")
+                callback(true, "Password added successfully")
             }else{
                 callback(false, "${it.exception?.message}")
             }
@@ -28,7 +28,7 @@ class ProductRepositoryImpl : ProductRepository {
     override fun updateProduct(productId: String, data: MutableMap<String, Any>, callback: (Boolean, String) -> Unit) {
         reference.child(productId).updateChildren(data).addOnCompleteListener{
             if(it.isSuccessful){
-                callback(true, "Product updated successfully")
+                callback(true, "Password updated successfully")
             }else{
                 callback(false, "${it.exception?.message}")
             }
@@ -38,7 +38,7 @@ class ProductRepositoryImpl : ProductRepository {
     override fun deleteProduct(productId: String, callback: (Boolean, String) -> Unit) {
         reference.child(productId).removeValue().addOnCompleteListener {
                 if (it.isSuccessful) {
-                    callback(true, "Product deleted successfully")
+                    callback(true, "Password deleted successfully")
                 } else {
                     callback(false, "${it.exception?.message}")
                 }
@@ -74,7 +74,7 @@ class ProductRepositoryImpl : ProductRepository {
                     }
                     callback(products, true, "Data fetched successfully")
                 } else {
-                    callback(emptyList(), false, "No products found")
+                    callback(emptyList(), false, "No password found")
                 }
             }
 
