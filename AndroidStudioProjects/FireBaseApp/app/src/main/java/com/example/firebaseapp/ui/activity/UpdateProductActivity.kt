@@ -33,7 +33,7 @@ class UpdateProductActivity : AppCompatActivity() {
                 binding.updateProductPrice.setText(product.price)
                 binding.updateProductName.setText(product.productName)
             } else {
-                Toast.makeText(this, "Product not found", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Password not found", Toast.LENGTH_SHORT).show()
             }
         }
 
