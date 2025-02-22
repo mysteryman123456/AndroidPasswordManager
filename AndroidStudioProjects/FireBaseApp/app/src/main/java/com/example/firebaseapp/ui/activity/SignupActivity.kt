@@ -86,14 +86,14 @@ class SignupActivity : AppCompatActivity() {
             Toast.makeText(context, "Password field cannot be empty", Toast.LENGTH_SHORT).show()
             return false
         } else if (password.length < 8) {
-            Toast.makeText(context, "Password must be at least 8 chars", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Password must be at least 8 characters", Toast.LENGTH_SHORT).show()
             return false
         }
         if (phone.isEmpty()) {
             Toast.makeText(context, "Phone field cannot be empty", Toast.LENGTH_SHORT).show()
             return false
         } else if (!phone.matches(Regex("\\d{10}"))) {
-            Toast.makeText(context, "Please enter valid phonenumber", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Please enter valid phone number", Toast.LENGTH_SHORT).show()
             return false
         }
         if (fullname.isEmpty()) {
